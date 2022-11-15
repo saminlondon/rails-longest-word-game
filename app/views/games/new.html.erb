@@ -1,0 +1,15 @@
+<h1 class="m-4">New game</h1>
+
+<% @letter.each do |alphabet|  %>
+  <div class="d-flex justify-content-around" >
+    <%= alphabet %>
+  </div>
+<% end %>
+
+<p class="m-4">What is the longest word you can find?</p>
+
+<form action="/score" data-turbo="false" method="post" class="m-4">
+  <input type="text" name="score" value="<%= params[:score] %>">
+  <input type="submit" class="btn btn-light" value="Play">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
